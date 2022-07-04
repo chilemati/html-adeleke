@@ -1,0 +1,72 @@
+import React from 'react'
+import {useState} from "react"; // use state is a hook. it is used to update changes of variables
+// no js here. except import or export as in below
+const Home = ({today}) => { // use distructuring an in put many properties in{}, to have many properties like in javascript
+    // js function. global variable
+
+  //   const [first, setName] = useState("amadi"); // this replaces the let first ="chile" [oldname, newname]
+    const fire= (x,b) =>{ // the b.type is shows the type of click event
+      // this x,b makes you work like in vernila javascript
+console.log(x);
+    }
+ 
+    function MissedGoal(){ // first component
+      return <h1> Missed</h1>
+    }
+
+    function MadeGoal() { // second component
+      return <h1> Goal!</h1>
+    }
+
+    function Goal (props){ // this third componet is used to call other components when a condition is meet
+      const isGoal = props.isGoal;
+      if(isGoal) {
+        return <MadeGoal />;
+      }
+  
+        return <MissedGoal />;
+    
+    }
+
+    function George (props) {
+      const cars = props.cars;
+
+      return (
+        <>
+        <h1>Garage</h1>
+        {
+          cars.length >= 4 && <h2> you have {cars.length} cars in your garage.</h2> // car.lenght is like half tenary operator. if cars.length > 0 is true, the h2 element displays. if not, nothing shows
+        }
+        </>
+      );
+    }
+
+    const cars = ['Ford', 'BMW', 'AUDI'];
+   
+  return (
+    // mostly html
+  
+        <div>
+
+<h1>Hello world form Home component {today}</h1>
+<button onClick={(event)=> {fire('shooting target',event)}}> tap</button>
+
+{/* <Goal isGoal={true} /> */}
+<George cars={cars} />
+
+
+
+
+        </div>
+
+        
+  )
+}
+// Home.defaultProps={
+//   name: "elitepath",
+//   job: "Banker",
+//   title: 'Mrs'
+// }
+
+export default Home
+// to get this template, type rafce and hit enter
